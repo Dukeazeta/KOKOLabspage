@@ -289,10 +289,25 @@ body {
 }
 
 .socials-row {
-    grid-column-gap: 1.5em;
-    grid-row-gap: 1.5em;
-    flex-flow: row;
     display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.social-link {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+.social-link:hover {
+    color: var(--color-primary);
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
 }
 
 .p-small {
