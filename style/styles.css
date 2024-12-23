@@ -413,9 +413,11 @@ body {
 
 /* Header and Navigation */
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    background-color: var(--bg-color);
+    left: 0;
+    right: 0;
+    background-color: transparent;
     z-index: 1000;
     transition: all var(--transition-speed) ease;
     padding: 1rem var(--container-padding);
@@ -498,12 +500,13 @@ header {
 
 /* Hero Section */
 .hero {
-    min-height: calc(100vh - 80px);
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem var(--container-padding);
+    padding: 0 var(--container-padding);
     transition: padding var(--transition-speed) ease;
+    margin-top: 0;
 }
 
 .hero h1 {
