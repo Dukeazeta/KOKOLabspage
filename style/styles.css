@@ -4,8 +4,18 @@
     --text-color: #000000;
     --border-color: #000000;
     --sun-color: #f4c01e;
-    --transition-speed: 0.3s;
+    --color-primary: #0066FF;
+    --color-neutral-100: #F5F5F5;
+    --color-neutral-200: #EEEEEE;
+    --color-neutral-300: #E0E0E0;
+    --color-neutral-800: #424242;
+    --color-dark: #000000;
+    --size-container: 75rem;
     --container-padding: 2rem;
+    --gap: 1.5rem;
+    --section-padding: 5rem;
+    --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
+    --transition-speed: 0.3s;
     --border-radius: 0.5rem;
 }
 
@@ -14,6 +24,12 @@
     --text-color: #ffffff;
     --border-color: #ffffff;
     --sun-color: #ffffff;
+    --color-primary: #4D94FF;
+    --color-neutral-100: #333333;
+    --color-neutral-200: #424242;
+    --color-neutral-300: #616161;
+    --color-neutral-800: #E0E0E0;
+    --color-dark: #ffffff;
 }
 
 * {
@@ -30,9 +46,361 @@ body {
     font-family: 'Clash Grotesk', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    transition: background-color var(--transition-speed) ease,
-                color var(--transition-speed) ease;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
     overflow-x: hidden;
+    line-height: 1;
+}
+
+/* Osmo UI Menu Styles */
+.osmo-ui {
+    z-index: 0;
+    pointer-events: none;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.header {
+    z-index: 110;
+    padding-top: var(--gap);
+    position: fixed;
+    inset: 0% 0% auto;
+}
+
+.container {
+    z-index: 1;
+    max-width: var(--size-container);
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.container.is--full {
+    max-width: 100%;
+}
+
+.nav-row {
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    display: flex;
+}
+
+.nav-logo-row {
+    pointer-events: auto;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    display: flex;
+}
+
+.logo {
+    font-family: 'Climate Crisis', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    line-height: 1;
+    transition: color var(--transition-speed) ease;
+}
+
+.nav-row__right {
+    grid-column-gap: .625rem;
+    grid-row-gap: .625rem;
+    pointer-events: auto;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+}
+
+.menu-button {
+    grid-column-gap: .625em;
+    grid-row-gap: .625em;
+    background-color: transparent;
+    justify-content: flex-end;
+    align-items: center;
+    margin: -1em;
+    padding: 1em;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.menu-button-text {
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 1.125em;
+    display: flex;
+    overflow: hidden;
+}
+
+.menu-button-icon {
+    width: 1em;
+    height: 1em;
+}
+
+.icon-wrap {
+    transition: transform 0.4s var(--cubic-default);
+}
+
+/* Navigation Menu */
+.nav {
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    position: fixed;
+    inset: 0%;
+}
+
+.overlay {
+    z-index: 0;
+    cursor: pointer;
+    background-color: rgba(19, 19, 19, 0.4);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0%;
+}
+
+.menu {
+    --menu-padding: 2em;
+    padding-bottom: var(--menu-padding);
+    grid-column-gap: 5em;
+    grid-row-gap: 5em;
+    padding-top: calc(3 * var(--menu-padding));
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 35em;
+    height: 100%;
+    margin-left: auto;
+    position: relative;
+    overflow: auto;
+}
+
+.menu-bg {
+    z-index: 0;
+    position: absolute;
+    inset: 0%;
+}
+
+.bg-panel {
+    z-index: 0;
+    background-color: var(--color-neutral-300);
+    border-top-left-radius: 1.25em;
+    border-bottom-left-radius: 1.25em;
+    position: absolute;
+    inset: 0%;
+}
+
+.bg-panel.first {
+    background-color: var(--color-primary);
+}
+
+.bg-panel.second {
+    background-color: var(--color-neutral-100);
+}
+
+.menu-inner {
+    z-index: 1;
+    grid-column-gap: 5em;
+    grid-row-gap: 5em;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+    display: flex;
+    position: relative;
+    overflow: auto;
+}
+
+.menu-list {
+    flex-flow: column;
+    width: 100%;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+}
+
+.menu-list-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-link {
+    padding-top: .75em;
+    padding-bottom: .75em;
+    padding-left: var(--menu-padding);
+    grid-column-gap: .75em;
+    grid-row-gap: .75em;
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    color: var(--text-color);
+}
+
+.menu-link-heading {
+    z-index: 1;
+    text-transform: uppercase;
+    font-family: 'Climate Crisis', sans-serif;
+    font-size: 3.5em;
+    font-weight: 700;
+    line-height: .75;
+    transition: transform 0.55s var(--cubic-default);
+    position: relative;
+    text-shadow: 0px 1em 0px var(--color-neutral-200);
+}
+
+.eyebrow {
+    z-index: 1;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-family: 'Clash Grotesk', sans-serif;
+    font-weight: 400;
+    position: relative;
+}
+
+.menu-link-bg {
+    z-index: 0;
+    background-color: var(--color-neutral-800);
+    transform-origin: 50% 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.55s var(--cubic-default);
+    position: absolute;
+    inset: 0%;
+    transform: scale3d(1, 0, 1);
+}
+
+.menu-details {
+    padding-left: var(--menu-padding);
+    grid-column-gap: 1.25em;
+    grid-row-gap: 1.25em;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+}
+
+.socials-row {
+    grid-column-gap: 1.5em;
+    grid-row-gap: 1.5em;
+    flex-flow: row;
+    display: flex;
+}
+
+.p-small {
+    font-size: .875em;
+}
+
+.p-large {
+    font-size: 1.125em;
+}
+
+.text-link {
+    color: var(--text-color);
+    text-decoration: none;
+    position: relative;
+}
+
+/* Hover Effects */
+@media (hover: hover) {
+    .menu-button:hover .icon-wrap {
+        transform: rotate(90deg);
+    }
+
+    .menu-link:hover .menu-link-heading {
+        transform: translate(0px, -1em);
+        transition-delay: 0.1s;
+    }
+
+    .menu-link:hover .menu-link-bg {
+        transform: scale3d(1, 1, 1);
+    }
+
+    .text-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: var(--color-primary);
+        transform-origin: right center;
+        transform: scale(0, 1);
+        transition: transform 0.4s var(--cubic-default);
+    }
+
+    .text-link:hover::after {
+        transform-origin: left center;
+        transform: scale(1, 1);
+    }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 991px) {
+    :root {
+        --container-padding: 2rem;
+        --section-padding: 4rem;
+    }
+
+    .menu-link-heading {
+        font-size: 2.75em;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    :root {
+        --menu-padding: 1em;
+        --container-padding: 1.5rem;
+        --section-padding: 3rem;
+    }
+
+    .nav-logo-row {
+        grid-column-gap: 2.5em;
+        grid-row-gap: 2.5em;
+        width: auto;
+    }
+
+    .nav-row__right {
+        grid-column-gap: 0;
+        grid-row-gap: 0;
+    }
+
+    .menu {
+        padding-top: calc(6 * var(--menu-padding));
+        width: 100%;
+    }
+
+    .menu-list-item {
+        height: 3.5em;
+    }
+
+    .menu-link-heading {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    :root {
+        --container-padding: 1rem;
+        --section-padding: 2.5rem;
+    }
+
+    .menu {
+        padding-top: calc(7 * var(--menu-padding));
+        padding-bottom: calc(2 * var(--menu-padding));
+    }
+
+    .menu-link-heading {
+        font-size: 1.75em;
+    }
 }
 
 /* Container */
