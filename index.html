@@ -3,52 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Apps - KOKO Labs</title>
+    <title>KOKO Labs - Innovation Through Code</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap" rel="stylesheet">
-    <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,400,600&display=swap" rel="stylesheet">
-    <link href="https://api.fontshare.com/v2/css?f[]=sharpie@400&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=chillax@1,600,500,300,700,400,200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="logo">
-            <a href="/">KOKO<br>LABS</a>
-        </div>
-        <nav class="nav-links">
-            <a href="/">HOME</a>
-            <a href="#team">TEAM</a>
-            <a href="#updates">UPDATES</a>
-            <a href="#services">SERVICES</a>
-        </nav>
-        <div class="right-section">
-            <a href="#" class="social-link">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="x-icon">
-                    <path d="M13.71,10.59l6.7-7.79h-1.59l-5.82,6.76-4.65-6.76H3l7.03,10.23-7.03,8.17h1.59l6.14-7.14,4.91,7.14h5.36l-7.29-10.61h0ZM11.54,13.12l-.71-1.02L5.16,4h2.44l4.57,6.54.71,1.02,5.94,8.5h-2.44l-4.85-6.94h0Z"/>
-                </svg>
-            </a>
-            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-            <button class="theme-toggle">
-                <i class="fas fa-sun"></i>
+        <div class="mobile-nav">
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
+        <nav class="nav-left">
+            <a href="apps.html">APPS</a>
+            <a href="team.html">TEAM</a>
+        </nav>
+        
+        <div class="logo">
+            <a href="index.html">KOKO<br>LABS</a>
+        </div>
+
+        <nav class="nav-right">
+            <a href="services.html">SERVICES</a>
+            <a href="updates.html">UPDATES</a>
+        </nav>
     </header>
+
     <main>
-        <section class="apps-page">
+        <section class="hero">
+            <h1>
+                <span class="introducing">BUILDING</span>
+                <span class="main-text">MINIMALISTIC</span>
+                <span class="main-text">MOBILE APPS</span>
+                <span class="sub-text">USING FLUTTER</span>
+            </h1>
+        </section>
+
+        <section class="apps-preview" id="apps">
             <div class="section-header">
-                <h1>Our Apps</h1>
-                <div class="filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="productivity">Productivity</button>
-                    <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
-                    <button class="filter-btn" data-filter="utilities">Utilities</button>
-                </div>
+                <h2>Featured Apps</h2>
+                <a href="apps.html" class="view-all-btn">View All Apps <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="apps-grid">
-                <!-- App 1 -->
-                <div class="app-card" data-category="productivity">
+                <div class="app-card">
                     <div class="app-icon">
                         <img src="assets/app1-icon.png" alt="App 1">
                     </div>
@@ -65,19 +68,17 @@
                         </span>
                     </div>
                     <div class="app-actions">
-                        <a href="/downloads/app1.apk" class="download-btn">
+                        <a href="downloads/app1.apk" class="download-btn">
                             <i class="fas fa-download"></i>
                             Download APK
                         </a>
-                        <a href="/apps/app1.html" class="details-btn">
+                        <a href="apps/app1.html" class="details-btn">
                             <i class="fas fa-info-circle"></i>
                             Details
                         </a>
                     </div>
                 </div>
-
-                <!-- App 2 -->
-                <div class="app-card" data-category="lifestyle">
+                <div class="app-card">
                     <div class="app-icon">
                         <img src="assets/app2-icon.png" alt="App 2">
                     </div>
@@ -94,21 +95,22 @@
                         </span>
                     </div>
                     <div class="app-actions">
-                        <a href="/downloads/app2.apk" class="download-btn">
+                        <a href="downloads/app2.apk" class="download-btn">
                             <i class="fas fa-download"></i>
                             Download APK
                         </a>
-                        <a href="/apps/app2.html" class="details-btn">
+                        <a href="apps/app2.html" class="details-btn">
                             <i class="fas fa-info-circle"></i>
                             Details
                         </a>
                     </div>
                 </div>
-
-                <!-- Add more app cards as needed -->
             </div>
         </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

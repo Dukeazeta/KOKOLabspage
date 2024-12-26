@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Details - KOKO Labs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=chillax@600,500,300,700,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="mobile-nav">
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="nav-left">
+            <a href="apps.html">APPS</a>
+            <a href="team.html">TEAM</a>
+        </nav>
+        
+        <div class="logo">
+            <a href="index.html">KOKO<br>LABS</a>
+        </div>
+
+        <nav class="nav-right">
+            <a href="services.html">SERVICES</a>
+            <a href="updates.html">UPDATES</a>
+        </nav>
+    </header>
+
+    <main class="update-details">
+        <div class="container">
+            <article class="update-content">
+                <header class="update-header">
+                    <p class="update-date">Loading...</p>
+                    <h1>Loading...</h1>
+                    <p class="update-category">Loading...</p>
+                </header>
+                <div class="update-body">
+                    <p>Loading update content...</p>
+                </div>
+                <footer class="update-footer">
+                    <a href="updates.html" class="back-button">← Back to Updates</a>
+                </footer>
+            </article>
+        </div>
+    </main>
+
+    <script>
+        const updates = {
+            '1': {
+                title: 'Major Update to Our Mobile Apps',
+                date: 'December 25, 2023',
+                category: 'Product Update',
+                content: `
+                    <p>We're excited to announce a major update to our mobile applications. This update brings several new features and improvements that we've been working on based on your feedback.</p>
+                    
+                    <h2>New Features</h2>
+                    <ul>
+                        <li>Improved user interface with smoother animations</li>
+                        <li>Dark mode support for better nighttime viewing</li>
+                        <li>Enhanced performance and faster load times</li>
+                        <li>New customization options</li>
+                    </ul>
+
+                    <h2>Performance Improvements</h2>
+                    <p>We've significantly improved the app's performance by optimizing our codebase and reducing memory usage. You should notice faster load times and smoother transitions throughout the app.</p>
+
+                    <h2>Bug Fixes</h2>
+                    <p>Several bugs have been fixed, including:</p>
+                    <ul>
+                        <li>Fixed occasional crash when opening large files</li>
+                        <li>Resolved sync issues with cloud storage</li>
+                        <li>Fixed layout issues on certain device sizes</li>
+                    </ul>
+
+                    <h2>What's Next</h2>
+                    <p>We're already working on our next update, which will include even more features and improvements. Stay tuned for more updates!</p>
+                `
+            },
+            '2': {
+                title: 'New Service Launch',
+                date: 'December 24, 2023',
+                category: 'Service Update',
+                content: `
+                    <p>Today marks the launch of our newest service offering. After months of development and testing, we're thrilled to introduce this new capability to our platform.</p>
+
+                    <h2>Key Features</h2>
+                    <ul>
+                        <li>Advanced analytics dashboard</li>
+                        <li>Real-time data processing</li>
+                        <li>Custom reporting tools</li>
+                        <li>Integration with existing services</li>
+                    </ul>
+
+                    <h2>Benefits</h2>
+                    <p>This new service will help our users:</p>
+                    <ul>
+                        <li>Make better data-driven decisions</li>
+                        <li>Save time on routine tasks</li>
+                        <li>Improve workflow efficiency</li>
+                        <li>Reduce operational costs</li>
+                    </ul>
+
+                    <h2>Getting Started</h2>
+                    <p>To start using the new service, simply log in to your account and navigate to the services section. We've prepared comprehensive documentation to help you get started.</p>
+
+                    <h2>Support</h2>
+                    <p>Our support team is ready to assist you with any questions or concerns you may have about the new service. Don't hesitate to reach out!</p>
+                `
+            }
+        };
+
+        // Load update content when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const updateId = urlParams.get('id');
+
+            if (updateId && updates[updateId]) {
+                const update = updates[updateId];
+                
+                // Update page title
+                document.title = `${update.title} - KOKO Labs`;
+                
+                // Update content
+                document.querySelector('.update-header h1').textContent = update.title;
+                document.querySelector('.update-date').textContent = update.date;
+                document.querySelector('.update-category').textContent = update.category;
+                document.querySelector('.update-body').innerHTML = update.content;
+            } else {
+                document.querySelector('.update-body').innerHTML = '<p>Update not found.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
