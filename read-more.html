@@ -16,6 +16,12 @@
                 <span></span>
                 <span></span>
             </button>
+            <nav class="mobile-menu">
+                <a href="apps.html">APPS</a>
+                <a href="team.html">TEAM</a>
+                <a href="services.html">SERVICES</a>
+                <a href="updates.html">UPDATES</a>
+            </nav>
         </div>
         <nav class="nav-left">
             <a href="apps.html">APPS</a>
@@ -30,6 +36,9 @@
             <a href="services.html">SERVICES</a>
             <a href="updates.html">UPDATES</a>
         </nav>
+        <a href="index.html" class="home-button" aria-label="Go to homepage">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1,11,12,2l11,9" fill="none" stroke="#000"/><path d="M20,8.5V22H4V8.5" fill="none" stroke="#000"/><polyline points="9.5 22 9.5 14 14.5 14 14.5 22" fill="none" stroke="#000"/></svg>
+        </a>
     </header>
 
     <main class="update-details">
@@ -133,6 +142,30 @@
                 document.querySelector('.update-body').innerHTML = update.content;
             } else {
                 document.querySelector('.update-body').innerHTML = '<p>Update not found.</p>';
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (hamburger && mobileMenu) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    console.log('Hamburger clicked'); // Debug log
+                });
+
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                    });
+                });
+            } else {
+                console.log('Hamburger or mobile menu not found'); // Debug log
             }
         });
     </script>
