@@ -19,6 +19,12 @@
                 <span></span>
                 <span></span>
             </button>
+            <nav class="mobile-menu">
+                <a href="apps.html">APPS</a>
+                <a href="team.html">TEAM</a>
+                <a href="services.html">SERVICES</a>
+                <a href="updates.html">UPDATES</a>
+            </nav>
         </div>
         <nav class="nav-left">
             <a href="apps.html">APPS</a>
@@ -73,6 +79,29 @@
             </div>
         </section>
     </main>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (hamburger && mobileMenu) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    console.log('Hamburger clicked'); // Debug log
+                });
+
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                    });
+                });
+            } else {
+                console.log('Hamburger or mobile menu not found'); // Debug log
+            }
+        });
+    </script>
 </body>
 </html>
