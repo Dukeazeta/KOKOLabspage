@@ -14,6 +14,10 @@
     --border-radius: 1rem;
     --size-container: 75rem;
     --gap: 1.5rem;
+    --card-bg: #FFFFFF;
+    --text-color-secondary: #6c757d;
+    --accent-color: #0468D7;
+    --accent-color-dark: #034f84;
 }
 
 * {
@@ -34,6 +38,16 @@ body {
     line-height: 1;
     transition: background-color var(--transition-speed) ease,
                 color var(--transition-speed) ease;
+}
+
+/* Global link styles */
+a {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+a:focus {
+    outline: none;
 }
 
 /* Header Styles */
@@ -531,93 +545,90 @@ header {
     }
 }
 
+/* Unified Card Styles */
+.app-card, .team-card, .service-card, .update-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.app-card:hover, .team-card:hover, .service-card:hover, .update-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.app-card h3, .team-card h3, .service-card h3, .update-card h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    font-weight: 600;
+}
+
+.app-card p, .team-card p, .service-card p, .update-card p {
+    color: var(--text-color-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.app-card .app-meta, .team-card .team-meta, .service-card .service-meta, .update-card .update-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+}
+
+.app-card .app-actions, .team-card .team-actions, .service-card .service-actions, .update-card .update-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.app-actions a, .team-actions a, .service-actions a, .update-actions a {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background var(--transition-speed) ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.download-btn, .details-btn, .read-more-btn {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.download-btn:hover, .details-btn:hover, .read-more-btn:hover {
+    background: var(--accent-color-dark);
+}
+
+/* Grid Layouts */
+@media screen and (max-width: 768px) {
+    .apps-grid, .team-grid, .services-grid, .updates-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .app-card, .team-card, .service-card, .update-card {
+        padding: 1.5rem;
+    }
+}
+
 /* Apps Grid */
 .apps-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 2rem;
     padding: 0 var(--container-padding);
-}
-
-.app-card {
-    background: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    transition: all var(--transition-speed) ease;
-}
-
-/* Apps Preview Section */
-.apps-preview {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
-
-.section-header h1 {
-    font-family: 'Chillax', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    color: var(--text-color);
-}
-
-.section-header p {
-    font-family: 'Chillax', sans-serif;
-    font-size: 1.25rem;
-    font-weight: 300;
-    letter-spacing: -0.01em;
-    line-height: 1.6;
-    color: var(--text-color);
-    opacity: 0.8;
-    max-width: 36rem;
-    margin: 0 auto;
-}
-
-@media screen and (max-width: 768px) {
-    .section-header {
-        margin-bottom: 3rem;
-    }
-
-    .section-header h1 {
-        font-size: 2.5rem;
-    }
-
-    .section-header p {
-        font-size: 1rem;
-    }
-}
-
-.view-all-btn {
-    font-family: 'Chillax', sans-serif;
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 1rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: transform var(--transition-speed) ease;
-}
-
-.view-all-btn:hover {
-    transform: translateX(5px);
-}
-
-.apps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
 }
 
 .app-card {
@@ -1139,6 +1150,93 @@ header {
     .update-body h2 {
         font-size: 1.5rem;
         margin: 2rem 0 1rem;
+    }
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+.section-header h1,
+.section-header h2 {
+    font-family: 'Chillax', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.section-header p {
+    font-family: 'Chillax', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-color-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.apps-section .section-header,
+.team-section .section-header,
+.services-section .section-header,
+.updates-section .section-header,
+.apps-preview .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .section-header h1,
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-header p {
+        font-size: 1rem;
+    }
+
+    .section-header {
+        margin-bottom: 2rem;
+    }
+}
+
+/* View All Button */
+.view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all var(--transition-speed) ease;
+    margin-top: 1rem;
+}
+
+.view-all-btn:hover {
+    background: var(--accent-color-dark);
+    transform: translateY(-2px);
+}
+
+.view-all-btn i {
+    transition: transform var(--transition-speed) ease;
+}
+
+.view-all-btn:hover i {
+    transform: translateX(4px);
+}
+
+@media screen and (max-width: 768px) {
+    .view-all-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
     }
 }
 
