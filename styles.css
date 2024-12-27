@@ -196,6 +196,7 @@ header {
 .sub-text {
     font-family: 'Chillax', sans-serif;
     font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-weight: 600;
     letter-spacing: 0.05em;
     margin-top: 1rem;
     color: var(--color-primary);
@@ -1163,10 +1164,11 @@ header {
 .section-header h1,
 .section-header h2 {
     font-family: 'Chillax', sans-serif;
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
+    text-transform: uppercase;
 }
 
 .section-header p {
@@ -1194,7 +1196,7 @@ header {
 @media screen and (max-width: 768px) {
     .section-header h1,
     .section-header h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .section-header p {
@@ -1304,5 +1306,70 @@ header {
     to {
         opacity: 0;
         transform: translateY(-10px);
+    }
+}
+
+/* Apps Preview Section */
+.apps-preview {
+    padding: var(--section-padding) var(--container-padding);
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .apps-preview {
+        padding: 2rem 1rem;
+        margin-top: 1rem;
+    }
+}
+
+/* Mission Text */
+.mission-text {
+    font-family: 'Chillax', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.mission-text:first-of-type {
+    margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .mission-text {
+        font-size: 0.8125rem;
+        margin-top: 0.4rem;
+    }
+
+    .mission-text:first-of-type {
+        margin-top: 1rem;
+    }
+}
+
+/* Updates Preview Section */
+.updates-preview {
+    padding: var(--section-padding) var(--container-padding);
+    background-color: var(--color-neutral-100);
+}
+
+.updates-preview .updates-grid {
+    max-width: var(--size-container);
+    margin: 0 auto;
+}
+
+.updates-preview .section-footer {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .updates-preview {
+        padding: 3rem 1rem;
+    }
+
+    .updates-preview .section-footer {
+        margin-top: 2rem;
     }
 }
