@@ -20,6 +20,12 @@
                 <span></span>
                 <span></span>
             </button>
+            <nav class="mobile-menu">
+                <a href="apps.html">APPS</a>
+                <a href="team.html">TEAM</a>
+                <a href="services.html">SERVICES</a>
+                <a href="updates.html">UPDATES</a>
+            </nav>
         </div>
         <nav class="nav-left">
             <a href="apps.html">APPS</a>
@@ -110,9 +116,25 @@
             </div>
         </section>
     </main>
-
+    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
