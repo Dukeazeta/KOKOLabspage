@@ -1763,3 +1763,156 @@ header {
 .logo a:hover::before {
     border-color: var(--color-primary);
 }
+
+/* Donate Page Styles */
+.donate-section {
+    padding: var(--section-padding) var(--container-padding);
+}
+
+.donate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: var(--size-container);
+    margin: 2rem auto;
+}
+
+.donate-card {
+    background: var(--color-neutral-100);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.donate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.crypto-icon {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.crypto-icon img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.donate-card:hover .crypto-icon {
+    transform: scale(1.1);
+}
+
+.donate-card h3 {
+    font-family: 'Chillax', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.wallet-address {
+    background: var(--bg-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.wallet-address .address {
+    font-family: monospace;
+    color: var(--text-color-secondary);
+    margin: 0;
+    font-size: 1rem;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.copy-btn:hover {
+    transform: scale(1.1);
+}
+
+.network-info {
+    margin-top: 1rem;
+}
+
+.network-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.donation-message {
+    text-align: center;
+    max-width: 700px;
+    margin: 4rem auto 0;
+    padding: 2rem;
+    background: var(--color-neutral-100);
+    border-radius: var(--border-radius);
+}
+
+.donation-message h2 {
+    font-family: 'Chillax', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.donation-message p {
+    color: var(--text-color-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.donation-note {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+}
+
+.donation-note i {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+}
+
+.donation-note p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+    .donate-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .donation-message {
+        margin: 3rem 1rem 0;
+        padding: 1.5rem;
+    }
+
+    .donation-message h2 {
+        font-size: 1.5rem;
+    }
+}
