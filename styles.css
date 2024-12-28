@@ -5,6 +5,7 @@
     --color-neutral-200: #E5E5E5;
     --color-neutral-300: #D4D4D4;
     --color-neutral-800: #262626;
+    --color-neutral-900: #1a1a1a;
     --text-color: #000000;
     --bg-color: #FFFFFF;
     --transition-speed: 0.3s;
@@ -18,6 +19,7 @@
     --text-color-secondary: #6c757d;
     --accent-color: #0468D7;
     --accent-color-dark: #034f84;
+    --color-primary-dark: #0354ac;
 }
 
 * {
@@ -90,6 +92,25 @@ header {
     line-height: 1.2;
     -webkit-tap-highlight-color: transparent;
     outline: none;
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.logo a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.logo a:hover::before {
+    border-color: var(--color-primary);
 }
 
 .logo a:focus {
@@ -123,6 +144,24 @@ header {
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.nav-left a:hover::before, .nav-right a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-left a::before, .nav-right a::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
 }
 
 .nav-left a:hover::before, .nav-right a:hover::before {
@@ -804,15 +843,17 @@ header {
 }
 
 /* Team Page Styles */
-.team-page {
-    padding: var(--section-padding) 0;
+.team-section {
+    padding: var(--section-padding) var(--container-padding);
 }
 
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    margin-top: 3rem;
+    max-width: var(--size-container);
+    margin: 0 auto;
+    padding-top: 2rem;
 }
 
 .team-card {
@@ -820,11 +861,30 @@ header {
     border-radius: var(--border-radius);
     padding: 2rem;
     text-align: center;
-    transition: transform var(--transition-speed) ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .team-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.team-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--color-primary);
+    transform: translateX(-101%);
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover::after {
+    transform: translateX(0);
 }
 
 .member-image {
@@ -833,19 +893,23 @@ header {
     margin: 0 auto 1.5rem;
     border-radius: 50%;
     overflow: hidden;
+    border: 3px solid var(--color-primary);
 }
 
 .member-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .member-image img {
+    transform: scale(1.1);
 }
 
 .team-card h3 {
     font-family: 'Chillax', sans-serif;
     font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.2;
     margin-bottom: 0.5rem;
     color: var(--text-color);
 }
@@ -857,15 +921,48 @@ header {
 }
 
 .team-card .bio {
+    color: var(--text-color-secondary);
     font-size: 0.9rem;
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 1.5rem;
 }
 
-.social-links {
+.team-card .social-links {
     display: flex;
     justify-content: center;
     gap: 1rem;
+}
+
+.team-card .social-link {
+    color: var(--text-color-secondary);
+    font-size: 1.25rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.team-card .social-link:hover {
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .team-card {
+        padding: 1.5rem;
+    }
+
+    .member-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .team-card h3 {
+        font-size: 1.25rem;
+    }
 }
 
 /* Updates Page Styles */
@@ -997,6 +1094,22 @@ header {
 
 .service-card:hover {
     transform: translateY(-5px);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--color-primary);
+    transform: translateX(-101%);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+    transform: translateX(0);
 }
 
 .service-icon {
@@ -1406,9 +1519,9 @@ header {
 
 /* Footer Styles */
 .footer {
-    background-color: var(--text-color);
+    background: var(--color-neutral-900);
     color: white;
-    padding: 4rem var(--container-padding);
+    padding: 4rem var(--container-padding) 2rem;
     margin-top: 4rem;
 }
 
@@ -1427,30 +1540,32 @@ header {
 
 .footer-left h2 {
     font-family: 'Chillax', sans-serif;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
 .footer-left p {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin-bottom: 2rem;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .contact-btn {
     display: inline-block;
-    background-color: var(--color-primary);
-    color: white;
     padding: 1rem 2rem;
-    border-radius: var(--border-radius);
+    background: var(--color-primary);
+    color: white;
     text-decoration: none;
+    border-radius: var(--border-radius);
     font-weight: 500;
-    transition: background-color var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, 
+                background var(--transition-speed) ease;
 }
 
 .contact-btn:hover {
-    background-color: #0354ac;
+    transform: translateY(-2px);
+    background: var(--color-primary-dark);
 }
 
 .footer-right {
@@ -1461,71 +1576,67 @@ header {
 
 .footer-bottom {
     max-width: var(--size-container);
-    margin: 4rem auto 0;
+    margin: 3rem auto 0;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255,255,255,0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+}
+
+.footer-nav {
+    display: flex;
     gap: 2rem;
 }
 
 .footer-nav a {
     color: white;
     text-decoration: none;
-    margin-right: 2rem;
     opacity: 0.8;
     transition: opacity var(--transition-speed) ease;
-    text-transform: uppercase;
-    font-size: 0.875rem;
-    letter-spacing: 0.02em;
 }
 
 .footer-nav a:hover {
     opacity: 1;
 }
 
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
 .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     text-decoration: none;
-    margin-left: 1.5rem;
-    font-size: 1.25rem;
     opacity: 0.8;
     transition: opacity var(--transition-speed) ease;
-    font-family: 'Chillax', sans-serif;
-    font-weight: 600;
+}
+
+.social-links a.x-logo {
+    height: 20px;
 }
 
 .social-links a.x-logo svg {
     width: 20px;
     height: 20px;
-    vertical-align: middle;
 }
 
-.social-links a {
-    color: white;
-    text-decoration: none;
-    margin-left: 1.5rem;
-    font-size: 1.25rem;
-    opacity: 0.8;
-    transition: opacity var(--transition-speed) ease;
-    display: inline-flex;
-    align-items: center;
-}
-
-.social-links a:hover {
-    opacity: 1;
+.social-links .fab {
+    font-size: 20px;
 }
 
 .footer-copyright {
-    opacity: 0.6;
-    font-size: 0.875rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
 }
 
 @media screen and (max-width: 768px) {
     .footer {
-        padding: 3rem 1rem;
+        padding: 3rem 1rem 1.5rem;
         margin-top: 3rem;
     }
 
@@ -1535,7 +1646,7 @@ header {
     }
 
     .footer-left h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .footer-left p {
@@ -1546,29 +1657,109 @@ header {
         justify-content: center;
     }
 
-    .footer-right dotlottie-player {
-        width: 250px !important;
-        height: 250px !important;
-    }
-
     .footer-bottom {
         flex-direction: column;
-        text-align: center;
         gap: 1.5rem;
-        margin-top: 3rem;
+        text-align: center;
+        margin-top: 2rem;
     }
 
     .footer-nav {
-        display: flex;
         flex-direction: column;
         gap: 1rem;
     }
 
-    .footer-nav a {
-        margin-right: 0;
+    .social-links {
+        margin: 1rem 0;
     }
+}
 
-    .social-links a {
-        margin: 0 0.75rem;
-    }
+/* Service Cards Enhanced Hover */
+.service-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--color-primary);
+    transform: translateX(-101%);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+    transform: translateX(0);
+}
+
+/* Team Cards Enhanced */
+.team-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--color-primary);
+    transform: translateX(-101%);
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover::after {
+    transform: translateX(0);
+}
+
+/* Navigation Enhancement */
+.nav-left a, .nav-right a {
+    position: relative;
+}
+
+.nav-left a::before, .nav-right a::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-left a:hover::before, .nav-right a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Logo Enhancement */
+.logo a {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.logo a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.logo a:hover::before {
+    border-color: var(--color-primary);
 }
