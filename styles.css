@@ -169,6 +169,37 @@ header {
     transform-origin: left;
 }
 
+/* Active Page Highlight */
+.nav-left a.active,
+.nav-right a.active,
+.footer-nav a.active {
+    color: var(--color-primary);
+    position: relative;
+}
+
+.nav-left a.active::after,
+.nav-right a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary);
+    transform: scaleX(1);
+}
+
+.footer-nav a.active {
+    opacity: 1;
+    font-weight: 500;
+}
+
+/* Mobile Menu Active State */
+.mobile-menu a.active {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
 /* Theme Toggle */
 .theme-toggle {
     background: none;
