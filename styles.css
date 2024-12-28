@@ -10,10 +10,10 @@
     --bg-color: #FFFFFF;
     --transition-speed: 0.3s;
     --cubic-default: cubic-bezier(0.4, 0, 0.2, 1);
-    --container-padding: 3rem;
+    --container-padding: 1.5rem;
     --section-padding: 5rem;
     --border-radius: 1rem;
-    --size-container: 75rem;
+    --size-container: 1800px;
     --gap: 1.5rem;
     --card-bg: #FFFFFF;
     --text-color-secondary: #6c757d;
@@ -880,11 +880,11 @@ header {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+    gap: 2.5rem;
     max-width: var(--size-container);
-    margin: 0 auto;
-    padding-top: 2rem;
+    margin: 2rem auto;
+    padding: 0 var(--container-padding);
 }
 
 .team-card {
@@ -977,7 +977,7 @@ header {
 
 @media screen and (max-width: 768px) {
     .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: 1fr;
         gap: 1.5rem;
         padding: 1rem;
     }
@@ -1008,13 +1008,6 @@ header {
 .updates-page .section-header {
     text-align: center;
     margin-bottom: 4rem;
-}
-
-.updates-page .section-header h1 {
-    font-family: 'Chillax', sans-serif;
-    font-size: 4rem;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
 }
 
 .updates-grid {
@@ -1105,7 +1098,7 @@ header {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
     gap: 2rem;
     padding: 0 var(--container-padding);
     max-width: var(--size-container);
@@ -1802,10 +1795,11 @@ header {
 
 .donate-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+    gap: 2.5rem;
     max-width: var(--size-container);
     margin: 2rem auto;
+    padding: 0 var(--container-padding);
 }
 
 .donate-card {
@@ -1945,5 +1939,39 @@ header {
 
     .donation-message h2 {
         font-size: 1.5rem;
+    }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+    :root {
+        --size-container: 1400px;
+    }
+    
+    .services-grid,
+    .team-grid,
+    .donate-grid {
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --container-padding: 1rem;
+        --size-container: 100%;
+    }
+    
+    .services-grid,
+    .team-grid,
+    .donate-grid {
+        grid-template-columns: 1fr;
+        padding: 0 var(--container-padding);
+    }
+    
+    .service-card,
+    .team-card,
+    .donate-card {
+        margin: 0 auto;
+        width: 100%;
     }
 }
