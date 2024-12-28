@@ -26,85 +26,139 @@
                 <a href="updates.html">UPDATES</a>
             </nav>
         </div>
-        <a href="index.html" class="home-button" aria-label="Go to homepage">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1,11,12,2l11,9" fill="none" stroke="#000"/><path d="M20,8.5V22H4V8.5" fill="none" stroke="#000"/><polyline points="9.5 22 9.5 14 14.5 14 14.5 22" fill="none" stroke="#000"/></svg>
-        </a>
         <nav class="nav-left">
             <a href="apps.html">APPS</a>
             <a href="team.html">TEAM</a>
         </nav>
-        
         <div class="logo">
             <a href="index.html">KOKO<br>LABS</a>
         </div>
-
         <nav class="nav-right">
             <a href="services.html">SERVICES</a>
             <a href="updates.html">UPDATES</a>
         </nav>
     </header>
-    <main>
-        <section class="services-section">
-            <div class="section-header">
-                <h1>Our Services</h1>
-                <p>Explore how we can help bring your ideas to life</p>
-            </div>
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Mobile App Development</h3>
-                    <p>Custom mobile applications for iOS and Android platforms, built with the latest technologies.</p>
-                    <ul class="service-features">
-                        <li>Native and Cross-platform Development</li>
-                        <li>UI/UX Design</li>
-                        <li>App Store Optimization</li>
-                    </ul>
-                    <a href="#" class="contact-btn">Get in Touch <i class="fas fa-arrow-right"></i></a>
-                </div>
 
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Custom Software Solutions</h3>
-                    <p>Tailored software solutions to meet your specific business needs and challenges.</p>
-                    <ul class="service-features">
-                        <li>Web Applications</li>
-                        <li>API Development</li>
-                        <li>System Integration</li>
-                    </ul>
-                    <a href="#" class="contact-btn">Get in Touch <i class="fas fa-arrow-right"></i></a>
+    <main>
+        <section class="services-hero">
+            <div class="section-header">
+                <h1>Services</h1>
+                <p>Transforming ideas into digital reality</p>
+            </div>
+        </section>
+
+        <section class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fab fa-flutter"></i>
                 </div>
+                <h3>Mobile App Development</h3>
+                <p>Building beautiful, high-performance mobile applications using Flutter. Cross-platform solutions that maintain native feel and functionality.</p>
+                <ul class="service-features">
+                    <li>Cross-platform development</li>
+                    <li>Native performance</li>
+                    <li>Beautiful UI/UX design</li>
+                    <li>Offline functionality</li>
+                </ul>
+                <a href="https://twitter.com/your-handle" class="service-cta">Get in Touch →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Web Development</h3>
+                <p>Creating responsive, modern websites and web applications. From simple landing pages to complex web platforms.</p>
+                <ul class="service-features">
+                    <li>Responsive design</li>
+                    <li>Modern frameworks</li>
+                    <li>Performance optimization</li>
+                    <li>SEO friendly</li>
+                </ul>
+                <a href="https://twitter.com/your-handle" class="service-cta">Get in Touch →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Graphics Design</h3>
+                <p>Crafting visually stunning designs that communicate your brand's message. From logos to full brand identities.</p>
+                <ul class="service-features">
+                    <li>Brand identity</li>
+                    <li>UI/UX design</li>
+                    <li>Marketing materials</li>
+                    <li>Social media assets</li>
+                </ul>
+                <a href="https://twitter.com/your-handle" class="service-cta">Get in Touch →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cube"></i>
+                </div>
+                <h3>Web3 Management</h3>
+                <p>Guiding you through the world of Web3. From smart contract development to blockchain integration.</p>
+                <ul class="service-features">
+                    <li>Smart contracts</li>
+                    <li>DApp development</li>
+                    <li>Blockchain integration</li>
+                    <li>NFT solutions</li>
+                </ul>
+                <a href="https://twitter.com/your-handle" class="service-cta">Get in Touch →</a>
             </div>
         </section>
     </main>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            
-            if (hamburger && mobileMenu) {
-                hamburger.addEventListener('click', function() {
-                    hamburger.classList.toggle('active');
-                    mobileMenu.classList.toggle('active');
-                    console.log('Hamburger clicked'); // Debug log
-                });
 
-                // Close menu when clicking a link
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        hamburger.classList.remove('active');
-                        mobileMenu.classList.remove('active');
-                    });
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h2>Let's get started.</h2>
+                <p>Ready to build something amazing together?</p>
+                <a href="https://twitter.com/your-handle" class="contact-btn">Let's Chat</a>
+            </div>
+            <div class="footer-right">
+                <dotlottie-player src="https://assets9.lottiefiles.com/packages/lf20_M9p23l.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-nav">
+                <a href="apps.html">Apps</a>
+                <a href="updates.html">Updates</a>
+                <a href="services.html">Services</a>
+            </div>
+            <div class="social-links">
+                <a href="https://twitter.com/your-handle" target="_blank" rel="noopener noreferrer" class="x-logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M13.71,10.59l6.7-7.79h-1.59l-5.82,6.76-4.65-6.76H3l7.03,10.23-7.03,8.17h1.59l6.14-7.14,4.91,7.14h5.36l-7.29-10.61h0ZM11.54,13.12l-.71-1.02L5.16,4h2.44l4.57,6.54.71,1.02,5.94,8.5h-2.44l-4.85-6.94h0Z"/></svg>
+                </a>
+                <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 KOKO Labs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    mobileMenu.classList.remove('active');
                 });
-            } else {
-                console.log('Hamburger or mobile menu not found'); // Debug log
-            }
-        });
+            });
+        }
     </script>
 </body>
 </html>
