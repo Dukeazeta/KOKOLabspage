@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOKO Labs - Innovation Through Code</title>
+    <title>KOKO Labs - Innovative Digital Solutions</title>
+    <meta name="description" content="KOKO Labs creates innovative digital solutions with a focus on mobile apps and web development.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap" rel="stylesheet">
-    <link href="https://api.fontshare.com/v2/css?f[]=chillax@1,600,500,300,700,400,200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://api.fontshare.com/v2/css?f[]=chillax@1,600,500,300,700,400,200&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module" defer></script>
 </head>
 <body>
     <header>
@@ -21,24 +22,24 @@
                 <span></span>
             </button>
             <nav class="mobile-menu">
-                <a href="apps.html">APPS</a>
-                <a href="team.html">TEAM</a>
-                <a href="services.html">SERVICES</a>
-                <a href="updates.html">UPDATES</a>
+                <a href="/apps">APPS</a>
+                <a href="/team">TEAM</a>
+                <a href="/services">SERVICES</a>
+                <a href="/updates">UPDATES</a>
             </nav>
         </div>
         <nav class="nav-left">
-            <a href="apps.html">APPS</a>
-            <a href="team.html">TEAM</a>
+            <a href="/apps">APPS</a>
+            <a href="/team">TEAM</a>
         </nav>
         
         <div class="logo">
-            <a href="index.html">KOKO<br>LABS</a>
+            <a href="/">KOKO<br>LABS</a>
         </div>
 
         <nav class="nav-right">
-            <a href="services.html">SERVICES</a>
-            <a href="updates.html">UPDATES</a>
+            <a href="/services">SERVICES</a>
+            <a href="/updates">UPDATES</a>
         </nav>
     </header>
 
@@ -58,7 +59,7 @@
         <section class="apps-preview" id="apps">
             <div class="section-header">
                 <h2>Featured Apps</h2>
-                <a href="apps.html" class="view-all-btn">View All Apps <i class="fas fa-arrow-right"></i></a>
+                <a href="/apps" class="view-all-btn">View All Apps <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="apps-grid">
                 <div class="app-card">
@@ -131,11 +132,11 @@
                     </div>
                     <h3>📣 Update Article: Exciting Changes Coming to the KOKO Labs Page!</h3>
                     <p>Hello, KOKO fam! As we kick off the new year, we're thrilled to share some updates coming to the KOKO Labs site. We've been listening to your feedback, analyzing trends, and focusing on ways to make our page more engaging, user-friendly, and representative of who we are as a team.</p>
-                    <a href="updates.html" class="read-more">Read More →</a>
+                    <a href="/updates" class="read-more">Read More →</a>
                 </div>
             </div>
             <div class="section-footer">
-                <a href="updates.html" class="view-all-btn">View All Updates <i class="fas fa-arrow-right"></i></a>
+                <a href="/updates" class="view-all-btn">View All Updates <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
     </main>
@@ -153,11 +154,11 @@
         </div>
         <div class="footer-bottom">
             <div class="footer-nav">
-                <a href="apps.html">Apps</a>
-                <a href="team.html">Team</a>
-                <a href="services.html">Services</a>
-                <a href="updates.html">Updates</a>
-                <a href="donate.html">Donate</a>
+                <a href="/apps">Apps</a>
+                <a href="/team">Team</a>
+                <a href="/services">Services</a>
+                <a href="/updates">Updates</a>
+                <a href="/donate">Donate</a>
             </div>
             <div class="social-links">
                 <a href="https://twitter.com/your-handle" target="_blank" rel="noopener noreferrer" class="x-logo">
