@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="js/modal.js"></script>
 </head>
 <body>
     <header>
@@ -55,33 +56,34 @@
                 <!-- App 1 -->
                 <div class="app-card" data-category="productivity">
                     <div class="app-icon">
-                        <img src="assets/app1-icon.png" alt="App 1">
+                        <img src="apps/timerkoko/Screenshot_20250111-121512.jpg" alt="TimerKoko Icon">
                     </div>
-                    <h3>App Name 1</h3>
-                    <p>Brief description of the app and its main features.</p>
+                    <h3>TimerKoko</h3>
+                    <p>A sleek and efficient timer app for your daily tasks and activities.</p>
                     <div class="app-meta">
                         <span class="version">
                             <i class="fas fa-code-branch"></i>
                             v1.0.0
                         </span>
-                        <span class="downloads">
-                            <i class="fas fa-download"></i>
-                            10K+
-                        </span>
                     </div>
                     <div class="app-actions">
-                        <a href="/downloads/app1.apk" class="download-btn">
+                        <a href="apps/timerkoko/Timerkoko.apk" class="download-btn">
                             <i class="fas fa-download"></i>
                             Download APK
                         </a>
-                        <a href="/apps/app1.html" class="details-btn">
+                        <a href="#" class="details-btn">
                             <i class="fas fa-info-circle"></i>
                             Details
                         </a>
-                        <a href="#" class="source-btn">
+                        <a href="https://github.com/Dukeazeta/timerkoko" class="source-btn">
                             <i class="fas fa-code"></i>
                             Source Code
                         </a>
+                    </div>
+                    <div class="hidden-screenshots" style="display: none;">
+                        <img src="apps/timerkoko/Screenshot_20250111-121524.jpg" alt="TimerKoko Screenshot 1">
+                        <img src="apps/timerkoko/Screenshot_20250111-121612.jpg" alt="TimerKoko Screenshot 2">
+                        <img src="apps/timerkoko/Screenshot_20250111-121625.jpg" alt="TimerKoko Screenshot 3">
                     </div>
                 </div>
 
@@ -122,6 +124,42 @@
             </div>
         </section>
     </main>
+
+    <div id="appDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <img id="modalAppIcon" src="" alt="App Icon">
+                <div class="modal-title">
+                    <h2 id="modalAppName"></h2>
+                    <p id="modalAppDescription"></p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3>Screenshots</h3>
+                <div id="modalScreenshots" class="screenshots-gallery"></div>
+                
+                <h3>Details</h3>
+                <div class="app-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Version:</span>
+                        <span id="modalAppVersion"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Last Update:</span>
+                        <span id="modalLastUpdate"></span>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <a id="modalDownloadBtn" href="#" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download APK
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="footer-content">
